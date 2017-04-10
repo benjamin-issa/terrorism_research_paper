@@ -43,16 +43,16 @@ print 'Structuring location of tweets..\n'
 tweets['tweet_location'] = [tweet['place']['country']if "place" in tweet and tweet['place'] else np.nan for tweet in tweets_data ]
 
 print 'Structuring user ID number of tweets..\n'
-tweets['user_id'] = [json.loads((json.dumps(tweet.get('user', '')))).get('id', '') for tweet in tweets_data]
+tweets['user_id'] = [tweet.get('user', '').get('id', '') for tweet in tweets_data]
 
 print 'Structuring user name of tweets..\n'
-tweets['user_name'] = [json.loads(json.dumps(tweet.get('user', ''))).get('name', '') for tweet in tweets_data]
+tweets['user_name'] = [tweet.get('user', '').get('name', '') for tweet in tweets_data]
 
 print 'Structuring user screen name of tweets..\n'
-tweets['user_screen_name'] = [json.loads(json.dumps(tweet.get('user', ''))).get('screen_name', '') for tweet in tweets_data]
+tweets['user_screen_name'] = [tweet.get('user', '').get('screen_name', '') for tweet in tweets_data]
 
 print 'Structuring user location of tweets..\n'
-tweets['user_location'] = [json.loads(json.dumps(tweet.get('user', ''))).get('location', '') for tweet in tweets_data]
+tweets['user_location'] = [tweet.get('user', '').get('location', '') for tweet in tweets_data]
 
 
 print 'Exporting tweet data to CSV file...\n'
